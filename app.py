@@ -7,7 +7,7 @@ model=joblib.load("iris_model.pkl")
 
 @app.route("/")
 def home():
-    return "message: Welcome to the Flask API!"
+    return "New Version Deployed"
 
 @app.route("/predict", methods=["POST"])
 def predict():
