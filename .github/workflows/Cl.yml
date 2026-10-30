@@ -2,18 +2,19 @@ name: ML pipeline
 on:
   push:
     branches: [main]
-workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   train-and-test:
     runs-on: ubuntu-latest # Operating system for the job
     steps:
-      - name: Downlode Project code 
-        user: actions/checkout@v4
+      - name: Download Project code 
+        uses: actions/checkout@v4
       - name: Setup Python
-        user: actions/setup-python@v4
+        uses: actions/setup-python@v4
         with:
           python-version: "3.11"
+          cache: "pip"
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: ML model Training
